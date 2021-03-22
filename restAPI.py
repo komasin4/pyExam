@@ -18,3 +18,12 @@ response = requests.post(url_items, data=params)
 
 print(response.text)
 
+json_object = json.loads(response.text)
+
+json_string = json.dumps(json_object, indent=5, ensure_ascii=False)
+print(json_string)
+
+json_Array = json_object.get("block1")
+
+for list in json_Array:
+    print(list.get("codeName"))
